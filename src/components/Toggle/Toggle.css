@@ -1,0 +1,16 @@
+.toggle {
+    @apply bg-slate-400 rounded-full h-8 w-16 relative;
+}
+
+.toggle::after {
+    content: "";
+    @apply rounded-full bg-white absolute h-6 w-6 left-1 top-1 transition-all;
+}
+
+.toggle.checked::after {
+    @apply left-9;
+}
+
+.toggle:hover::after {
+    @apply bg-slate-600;
+}

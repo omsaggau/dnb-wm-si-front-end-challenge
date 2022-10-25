@@ -1,14 +1,47 @@
 .app {
-  background-color: whitesmoke;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
   color: #282c33;
-  padding: 20px;
+
+  /* Gradient copied from https://stripe.com/en-gb-no with some DNB colors used instead */
+  --gradientColorZero: #14555a;
+  --gradientColorOne: #28b482;
+  --gradientColorTwo: #a5e1d2;
+  --gradientColorThree: #007272;
+  --gradientColorZeroTransparent: rgba(169,96,238,0);
+  --gradientColorOneTransparent: rgba(255,51,61,0);
+  --gradientColorTwoTransparent: rgba(144,224,255,0);
+  --gradientColorThreeTransparent: rgba(255,203,87,0);
+  --gradientAngle: var(--angleStrong);
+  --gradientHeight: calc(100% + var(--sectionPaddingTop) + var(--transformOriginX)*var(--sectionAngleSin));
+
+
+  background: radial-gradient(
+    var(--gradientColorThree) 23%,var(--gradientColorThreeTransparent) 67% 100%) 385px -24px,
+    radial-gradient(var(--gradientColorOne) 0,var(--gradientColorOneTransparent) 60% 100%) -940px 290px,
+    radial-gradient(var(--gradientColorTwo) 10%,var(--gradientColorTwoTransparent) 60% 100%) -120px 250px,
+    radial-gradient(var(--gradientColorOne) 40%,var(--gradientColorOneTransparent) 57% 100%) 495px -44px,
+    radial-gradient(var(--gradientColorZero) 30%,var(--gradientColorZeroTransparent) 67% 100%) 122px -120px,
+    radial-gradient(var(--gradientColorZero) 10%,var(--gradientColorZeroTransparent) 60% 100%) -420px 120px,
+    radial-gradient(var(--gradientColorTwo) 15%,var(--gradientColorTwoTransparent) 50% 100%) -620px 0,
+    radial-gradient(var(--gradientColorTwo) 25%,var(--gradientColorTwoTransparent) 50% 100%) 520px -250px,
+    var(--gradientColorZero);
 }
 
-.app-header {
-  text-align: center;
+
+.container {
+  @apply max-w-3xl mx-auto;
 }
 
+.hover-grow-sm, .hover-grow-md {
+  @apply transition-transform transform-gpu origin-center;
+}
+
+.hover-grow-sm:hover {
+  @apply scale-105;
+}
+
+.hover-grow-md:hover {
+  @apply scale-125;
+}
